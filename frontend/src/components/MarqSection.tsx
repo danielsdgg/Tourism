@@ -1,10 +1,11 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-import img2 from '../assets/NCBA.jpg';
-import img3 from '../assets/coop.jpg';
-import img4 from '../assets/grizzly.png';
-import img5 from '../assets/saf.png';
-import img6 from '../assets/samsung.png';
+import img1 from '../assets/NCBA.jpg';
+import img2 from '../assets/coop.jpg';
+import img3 from '../assets/grizzly.png';
+import img4 from '../assets/saf.png';
+import img5 from '../assets/samsung.png';
+import img6 from '../assets/Microsoft.jpg'
 import '../App.css'
 
 
@@ -19,19 +20,22 @@ const MarqSection = () => {
             <Marquee speed={90} delay={2} gradient={true}>
 
                 <div className='image_wrapper'>
-                    <img className='w-[300px] mx-auto rounded-3xl my-4' src={img2} alt='' />
+                    <img className='w-[200px] mx-auto rounded-3xl my-4' src={img1} alt='' />
                 </div>
                 <div className='image_wrapper'>
-                    <img className='w-[300px] mx-auto rounded-3xl my-4' src={img3} alt='' />
+                    <img className='w-[200px] mx-auto rounded-3xl my-4' src={img2} alt='' />
                 </div>
                 <div className='image_wrapper'>
-                    <img className='w-[300px] mx-auto rounded-3xl my-4' src={img4} alt='' />
+                    <img className='w-[200px] mx-auto rounded-3xl my-4' src={img3} alt='' />
                 </div>
                 <div className='image_wrapper'>
-                    <img className='w-[300px] mx-auto rounded-3xl my-4' src={img5} alt='' />
+                    <img className='w-[200px] mx-auto rounded-3xl my-4' src={img4} alt='' />
                 </div>
                 <div className='image_wrapper'>
-                    <img className='w-[300px] mx-auto rounded-3xl my-4' src={img6} alt='' />
+                    <img className='w-[200px] mx-auto rounded-3xl my-4' src={img5} alt='' />
+                </div>
+                <div className='image_wrapper'>
+                    <img className='w-[200px] mx-auto rounded-3xl my-4' src={img6} alt='' />
                 </div>
             </Marquee>
         </div>

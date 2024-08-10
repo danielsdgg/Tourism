@@ -3,6 +3,8 @@ import Navbar from "./Navbar";
 import Footer from "./Footer"; 
 import { Link } from "react-router-dom";
 import MarqSection from "./MarqSection";
+import { useSwipeable } from "react-swipeable";
+import Mostvisited from "./Mostvisited";
 
 const Home = () => {
   const testimonials = [
@@ -32,10 +34,43 @@ const Home = () => {
     setCurrentIndex(index);
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => goToSlide((currentIndex + 1) % testimonials.length),
+    onSwipedRight: () => goToSlide((currentIndex - 1 + testimonials.length) % testimonials.length),
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
+
   return (
     <>
     <Navbar />
     <div>
+      {/* new */}
+      <div className='w-full bg-white py-16 px-4'>
+        <div className='max-w-[100%] mx-auto grid md:grid-cols-3 justify-between '>
+            <div className='flex flex-col justify-center text-black'>
+            <img className='w-[120px] mx-auto my-4' src='https://res.cloudinary.com/dyl3rncv3/image/upload/v1680180166/elewa-group-website/Icons/PNG/Holistic_118_ylipr0.png' alt='/'/>
+            <h2 className='font-bold'> Holistic solutions</h2>
+                <p>
+                We go beyond a simple patch-up but develop lasting solutions through holistic design.      
+                </p>
+            </div>
+            <div className='flex flex-col justify-center text-black'>
+                <img className='w-[120px] mx-auto my-4' src='https://res.cloudinary.com/dyl3rncv3/image/upload/v1675690301/elewa-group-website/Icons/PNG/coorperative_kzlzrg.png' alt='/'/>
+                <h2 className='font-bold'>Impact</h2>
+                <p>
+                    Impact as a direct, or indirect, result. All our respective organizations have underlying theories of change.      
+                </p>
+            </div>
+            <div className='flex flex-col justify-center text-black'>
+                <img className='w-[120px] mx-auto my-4' src='https://res.cloudinary.com/dyl3rncv3/image/upload/v1675690299/elewa-group-website/Icons/PNG/Opendata_fe7h3j.png' alt='/'/>
+                <h2 className='font-bold'>Open data</h2>
+                <p>
+                    Sharing is caring. We share what we learn. As proof, we've open-sourced all our internal projects.     
+                </p>
+            </div>
+        </div>
+    </div>
       {/* part 1 */}
       <div className="relative bg-gray-900 text-white py-16">
       <div className="absolute inset-0 z-0 opacity-50">
@@ -55,47 +90,37 @@ const Home = () => {
         </div>
       </div>
     </div>
-        {/* {beginning} */}
-        {/* <div className='w-full bg-gray-300 py-16 px-12'>
-        <div className='max-w-[100%] mx-auto grid md:grid-cols-2'>
-            <div className='flex flex-col justify-center text-black'>
-                <h2 className='font-semibold py-2 md:text-6xl sm:text-3xl text-2xl'>Harold-Adventures-Corporate</h2>
-                <p>Welcome to your no:1 site for tours and travels exciting adventures. Here we got all you need to make your trips great and memorable.
-                  We are a tours and travel company that thrives in delivering top-notch services to our tourists.
-                   Great and exciting adventures awaits, You can now book a tour with us <Link to="/tours" className="text-blue-500 font-extrabold">Here</Link> and get started.
-                </p>
-
-            </div>
-            <img className='w-[500px] mx-auto rounded-3xl my-4' src='https://i.pinimg.com/736x/6d/37/ad/6d37ad2adfafaf9d92885e1c2e20a3fd.jpg' alt=''/>
-        </div>
-    </div> */}
-              {/* part 2 */}
+      {/* part 2 */}
       <div className='w-full bg-black py-16 px-12'>
         <div className='max-w-[100%] mx-auto grid md:grid-cols-2'>
-          <img className='w-[800px] rounded-3xl mx-auto my-4' src='https://www.oneworldtravel.rw/wp-content/uploads/2018/02/Tours-and-travel.jpg' alt='imagery'/>
-          <div className='flex flex-col justify-center text-white'>
+        <div className='flex flex-col justify-center text-white'>
             <h2 className='font-semibold py-2 md:text-6xl sm:text-3xl text-2xl'>Effortless Search</h2>
             <p>
             Explore a curated selection of tours and travels adventure and services offered to our clients. Our intuitive interface makes finding your ideal taste a breeze.
             </p>
           </div>
+          <img className='w-[800px] rounded-3xl mx-auto my-4' src='https://www.oneworldtravel.rw/wp-content/uploads/2018/02/Tours-and-travel.jpg' alt='imagery'/>
         </div>
       </div>
 
-      {/* part 3 */}
-      <div className="bg-gray-700 py-16">
+      {/* part 3 (client reviews)*/}
+      <div className="bg-gray-400 py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
           {/* Left Column */}
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">Committed to Excellence</h2>
-            <p className="text-lg lg:text-xl mb-8">Our mission is to provide top-notch tours solutions to our clients and ensure they thrive.</p>
+            <p className="text-lg lg:text-xl mb-8">
+              Our mission is to provide outstanding tours solutions to our clients and ensure they feel satisfied.We have a variety of fascinating sites ready for bookings now at affordable prices.
+              Remember, The world is a book and those who do not travel read only one page.
+            </p>
             <h3 className="text-2xl font-bold mb-4">Hear Our Clients</h3>
+            <p className="text-lg lg:text-xl mb-8">“See the world. It’s more fantastic than any dream.”</p>
           </div>
 
           {/* Right Column: Slider */}
           <div className="w-full lg:w-1/2">
-            <div className="relative">
+            <div className="relative" {...handlers}>
               <div className="overflow-hidden relative h-64">
                 <div
                   className="flex transition-transform duration-500"
@@ -141,7 +166,10 @@ const Home = () => {
       </div>
     </div>
 
-      {/* second section of the homepage */}
+    {/* most visited */}
+    <Mostvisited />
+
+      {/* part 4 (ceo message) */}
       <div className='w-full bg-gray-300 py-16 px-16'>
         <div className='max-w-[100%] mx-auto grid md:grid-cols-2'>
             <div className='flex flex-col justify-center text-black'>
@@ -156,12 +184,12 @@ const Home = () => {
         </div>
     </div>
 
-    {/* motion images section */}
+    {/* part 5 (motion images section) */}
     <MarqSection />
 
-    {/* third section of the homepage */}
+    {/* part 6 */}
     <div className='w-full bg-violet-200 text-black py-16 px-4 text-center md:text-6xl sm:text-3xl text-3xl'>
-        <p>Become part of our mission and join<b> Harold-Adventures</b></p>
+        <p>Friends that travel together, stay <b>together.</b></p>
     </div>
 
     </div>
