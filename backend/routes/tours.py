@@ -1,8 +1,16 @@
 from flask import jsonify, request, make_response, Blueprint
 from models import Tours, db
 from schemas import ToursSchema
+from flask_cors import CORS
+
 
 tours = Blueprint('tours', __name__)
+CORS(tours)
+
+
+@tours.route('/tours', methods=['POST'])
+def add_tour():
+    return 'Tour added'
 
 @tours.route('/')
 def home():
@@ -18,11 +26,11 @@ def get_all_tours():
 def tour_item(id):
     tours = Tours.query.filter_by(id=id).first()
     if not tours:
-        return make_response(jsonify({'meesage': 'tour not found'}), 404)
+        return make_response(jsonify({'message': 'Tour not found'}), 404)
     serialized_tours = ToursSchema().dump(tours)
     return make_response(jsonify(serialized_tours), 200)
 
-@tours.route('/tours', methods=['POST'])
+@tours.route('/post_tours', methods=['POST'])
 def create_tour():
     data = request.get_json()
     tours = ToursSchema().load(data)
@@ -33,7 +41,7 @@ def create_tour():
     tour_data = ToursSchema().dump(new_tour)
     return make_response(jsonify(tour_data), 201)
 
-@tours.route('/tours/<int:id>', methods=['DELETE'])
+@tours.route('/del_tours/<int:id>', methods=['DELETE'])
 def delete_tour(id):
     tours = Tours.query.filter_by(id=id).first()
     if not tours:
