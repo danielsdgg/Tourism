@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import MarqSection from "./MarqSection";
 import { useSwipeable } from "react-swipeable";
-import Mostvisited from "./Mostvisited";
+// import Mostvisited from "./Mostvisited";
 
 const Home = () => {
   const testimonials = [
@@ -45,61 +45,19 @@ const Home = () => {
     <>
     <Navbar />
     <div>
-      {/* new */}
-      <div className='w-full bg-white py-16 px-4'>
-        <div className='max-w-[100%] mx-auto grid md:grid-cols-3 justify-between '>
-            <div className='flex flex-col justify-center text-black'>
-            <img className='w-[120px] mx-auto my-4' src='https://res.cloudinary.com/dyl3rncv3/image/upload/v1680180166/elewa-group-website/Icons/PNG/Holistic_118_ylipr0.png' alt='/'/>
-            <h2 className='font-bold'> Holistic solutions</h2>
-                <p>
-                We go beyond a simple patch-up but develop lasting solutions through holistic design.      
-                </p>
-            </div>
-            <div className='flex flex-col justify-center text-black'>
-                <img className='w-[120px] mx-auto my-4' src='https://res.cloudinary.com/dyl3rncv3/image/upload/v1675690301/elewa-group-website/Icons/PNG/coorperative_kzlzrg.png' alt='/'/>
-                <h2 className='font-bold'>Impact</h2>
-                <p>
-                    Impact as a direct, or indirect, result. All our respective organizations have underlying theories of change.      
-                </p>
-            </div>
-            <div className='flex flex-col justify-center text-black'>
-                <img className='w-[120px] mx-auto my-4' src='https://res.cloudinary.com/dyl3rncv3/image/upload/v1675690299/elewa-group-website/Icons/PNG/Opendata_fe7h3j.png' alt='/'/>
-                <h2 className='font-bold'>Open data</h2>
-                <p>
-                    Sharing is caring. We share what we learn. As proof, we've open-sourced all our internal projects.     
-                </p>
-            </div>
-        </div>
-    </div>
       {/* part 1 */}
-      <div className="relative bg-gray-900 text-white py-16">
-      <div className="absolute inset-0 z-0 opacity-50">
-        <img src="https://wallpapers.com/images/hd/dark-animals-i26v28w3cmbgk9bj.jpg" alt="Cyber Defense" className="w-full h-[500px] object-cover" />
-      </div> 
-      <div className="container mx-auto relative z-10 flex flex-col lg:flex-row items-center">
-        <div className="w-full lg:w-1/2 px-4">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-4">Empowering Your Tours Strategy</h1>
-          <p>Welcome to your no:1 site for tours and travels exciting adventures. Here we got all you need to make your trips great and memorable.
-                  We are a tours and travel company that thrives in delivering top-notch services to our tourists.
-                   Great and exciting adventures awaits, You can now book a tour with us <Link to="/tours" className="text-blue-500 font-extrabold">Here</Link> and get started.
-          </p> <br></br>
-          <Link to={'/tours'}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Learn More</button></Link>
-        </div>
-        <div className="w-full lg:w-1/2 px-4 mt-8 lg:mt-0">
-          {/* Additional content can go here if needed */}
-        </div>
-      </div>
-    </div>
+
       {/* part 2 */}
       <div className='w-full bg-black py-16 px-12'>
         <div className='max-w-[100%] mx-auto grid md:grid-cols-2'>
+        <img className='w-[800px] rounded-3xl mx-auto my-4' src='https://www.oneworldtravel.rw/wp-content/uploads/2018/02/Tours-and-travel.jpg' alt='imagery'/>
         <div className='flex flex-col justify-center text-white'>
             <h2 className='font-semibold py-2 md:text-6xl sm:text-3xl text-2xl'>Effortless Search</h2>
             <p>
-            Explore a curated selection of tours and travels adventure and services offered to our clients. Our intuitive interface makes finding your ideal taste a breeze.
+            Explore a curated selection of tours and travels adventure and services offered to our clients. Our intuitive interface makes finding your ideal taste a breeze.We are a tours and travel company that thrives in delivering top-notch services to our tourists.
+            Great and exciting adventures awaits, You can now book a tour with us <Link to="/tours" className="text-blue-500 font-extrabold">Here</Link> and get started.
             </p>
           </div>
-          <img className='w-[800px] rounded-3xl mx-auto my-4' src='https://www.oneworldtravel.rw/wp-content/uploads/2018/02/Tours-and-travel.jpg' alt='imagery'/>
         </div>
       </div>
 
@@ -167,7 +125,7 @@ const Home = () => {
     </div>
 
     {/* most visited */}
-    <Mostvisited />
+    {/* <Mostvisited /> */}
 
       {/* part 4 (ceo message) */}
       <div className='w-full bg-gray-300 py-16 px-16'>
