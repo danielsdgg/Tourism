@@ -29,7 +29,7 @@ const Navbar = () => {
       <span className="w-full text-2xl font-semibold whitespace-nowrap dark:text-white cursor-pointer">Harold-adventures</span><br></br>
       <Link to={'/'}><li className='text-white p-4 cursor-pointer border-b border-gray-600'>Home</li></Link>
       <Link to={'/tours'}><li className='text-white p-4 cursor-pointer border-b border-gray-600'>Tours</li></Link>
-      <Link to={'/contacts'}><li className='text-white p-4 cursor-pointer'>Services</li></Link>
+      <Link to={'/contacts'}><li className='text-white p-4 cursor-pointer'>Contacts</li></Link>
       <Link to={'/about'}><li className='text-white p-4 cursor-pointer border-b border-gray-600'>About</li> </Link>
       {/* <li className='text-white p-4 cursor-pointer'>Profile</li> */}
       </ul>

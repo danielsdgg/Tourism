@@ -20,10 +20,10 @@ const NewTour: React.FC<NewTourProps> = ({ newTours }) => {
     name: "",
     description: "",
     image: "",
-    price: 1,
+    price: 0,
   });
-  const [notification, setNotification] = useState<string | null>(null); // State to handle notification
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [notification, setNotification] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   // Define the handleChange event type as React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -39,7 +39,7 @@ const NewTour: React.FC<NewTourProps> = ({ newTours }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await newTours(travel); // Pass the current travel state to the newTours function
+      await newTours(travel);
       setNotification('New tour added successfully!'); // Set success message
       setTimeout(() => {
         navigate('/tours'); // Redirect to the tours page after 3 seconds
@@ -51,10 +51,10 @@ const NewTour: React.FC<NewTourProps> = ({ newTours }) => {
 
   return (
     <div className='w-full h-screen bg-gray-300 flex justify-center items-center p-4'>
-      <form onSubmit={handleSubmit} className='flex flex-col max-w-[600px] w-full'>
+      <form onSubmit={handleSubmit} className='flex flex-col max-w-[600px] bg-gray-500 p-3 w-full'>
         <div className='pb-8'>
            <Link to={'/tours'}> <img className='w-[30px] cursor-pointer my-4' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoh5acUOOmQRCbwrlrqsXJjksHBQu-r_0Ulw&s' alt='imagery'/> </Link>
-            <p className='text-4xl font-bold inline border-b-4 border-black text-black'>Add A Tour</p>
+           <div className="flex justify-center"><p className='text-4xl font-bold inline border-b-4 border-black text-black'>Add A Tour</p></div>
         </div>
         <input
           className='bg-white p-2'

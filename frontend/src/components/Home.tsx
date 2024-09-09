@@ -46,12 +46,53 @@ const Home = () => {
     <Navbar />
     <div>
       {/* part 1 */}
+      <section className="bg-gray-200 py-12">
+      {/* Container */}
+      <div className="container mx-auto px-4">
+        {/* Heading */}
+        <h1 className="text-4xl font-light text-gray-800 mb-8">
+          Resources | Lists and Tips
+        </h1>
+        {/* Subheading */}
+        <p className="text-lg text-gray-600 mb-12">
+          The Best Travel Websites to Save You Money
+        </p>
 
-      {/* part 2 */}
-      <div className='w-full bg-black py-16 px-12'>
+        {/* Cards Container */}
+        <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+          {/* Card 1 */}
+          <div className="bg-[#104c4e] shadow-md rounded-md p-6 hover:shadow-lg transition-shadow">
+            <h2 className="text-2xl font-semibold text-white mb-4">Resources</h2>
+            <p className="text-white">
+              Discover a range of resources to help you plan your next trip with ease. From travel insurance
+              to packing tips, get everything you need.
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-[#104c4e] shadow-md rounded-md p-6 hover:shadow-lg transition-shadow">
+            <h2 className="text-2xl font-semibold text-white mb-4">Lists and Tips</h2>
+            <p className="text-white">
+              Browse our curated lists of top destinations, travel tips, and insider secrets to make your
+              journey memorable and hassle-free.
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-[#104c4e] shadow-md rounded-md p-6 hover:shadow-lg transition-shadow">
+            <h2 className="text-2xl font-semibold text-white mb-4">Best Travel Websites</h2>
+            <p className="text-white">
+              Explore the best websites to book flights, hotels, and find travel deals. Save money and plan
+              smarter with our top picks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+      {/* <div className='w-full bg-black py-16 px-12'>
         <div className='max-w-[100%] mx-auto grid md:grid-cols-2'>
-        <img className='w-[800px] rounded-3xl mx-auto my-4' src='https://www.oneworldtravel.rw/wp-content/uploads/2018/02/Tours-and-travel.jpg' alt='imagery'/>
-        <div className='flex flex-col justify-center text-white'>
+          <img className='w-[800px] rounded-3xl mx-auto my-4' src='https://www.oneworldtravel.rw/wp-content/uploads/2018/02/Tours-and-travel.jpg' alt='imagery'/>
+            <div className='flex flex-col justify-center text-white'>
             <h2 className='font-semibold py-2 md:text-6xl sm:text-3xl text-2xl'>Effortless Search</h2>
             <p>
             Explore a curated selection of tours and travels adventure and services offered to our clients. Our intuitive interface makes finding your ideal taste a breeze.We are a tours and travel company that thrives in delivering top-notch services to our tourists.
@@ -59,7 +100,28 @@ const Home = () => {
             </p>
           </div>
         </div>
+      </div> */}
+
+
+      {/* part 2 */}
+      <section className="py-12 bg-gray-100">
+      <div className="container mx-auto px-4">
+        {/* Heading */}
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Watch Our Latest Video</h2>
+
+        {/* Video Container */}
+        <div className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg">
+          {/* Adjust aspect ratio for different screen sizes */}
+          <div className="relative pb-[56.25%] sm:pb-[65%] lg:pb-[28.125%]">
+            <video
+              className="absolute top-0 left-0 w-full h-full"
+              controls
+              src="https://res.cloudinary.com/ddei3mzex/video/upload/v1725881758/Virtual_Tour___It_s_More_Fun_with_You_in_El_Nido_cobll8.mp4"
+            ></video>
+          </div>
+        </div>
       </div>
+    </section>
 
       {/* part 3 (client reviews)*/}
       <div className="bg-gray-400 py-16">
@@ -87,7 +149,7 @@ const Home = () => {
                   {testimonials.map((testimonial, index) => (
                     <div
                       key={index}
-                      className="flex-shrink-0 w-full h-full flex items-center justify-center bg-slate-200 shadow-lg p-6"
+                      className="flex-shrink-0 w-full h-full flex items-center justify-center bg-white text-black shadow-lg p-6"
                     >
                       <div className="text-center">
                         <p className="text-lg mb-4">{testimonial.testimonial}</p>

@@ -16,14 +16,14 @@
 }
    */
 .imagee {
-    height: 385px;
-    width: 100%; 
+    height: 500px;
+    width: 120vh; 
 }
   
 .cadii {
     justify-content: center;
     align-items: center;
-    padding: 2.5rem;
+    padding: 0.9rem;
     cursor: pointer;
 }
 
