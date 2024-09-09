@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import Tours from './components/Tours';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NewTour from './components/NewTour';
+import Details from './components/Details';
 
 // Define the Product type to match the API data structure
 interface Product {
@@ -70,7 +71,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contacts" element={<Contact />} />
           <Route path="/tours" element={<Tours product={product} travels={travels} />} />
-          <Route path="/add_tours" element={<NewTour newTours = {newTours} />} />  
+          <Route path="/add_tours" element={<NewTour newTours = {newTours} />} />
+          <Route path='/details/:id' element={<Details/>} />  
         </Routes>
       </Router>
       {error && <div className="error-message">{error}</div>} {/* Display error message */}

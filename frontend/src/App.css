@@ -33,5 +33,49 @@
   margin-bottom: 4vh;
   outline: none;
   width: 100%;
-  background-color: rgb(224, 216, 216);
+}
+.more{
+  width: 100%;
+  /* margin-left: 170px; */
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.more:hover{
+  background-color: darkgreen;
+}
+.upd{
+  width: 100%;
+  /* margin-left: 170px; */
+  background-color: blue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.upd:hover{
+  background-color: darkblue;
+}
+.dell{
+  width: 100%;
+  /* margin-left: 170px; */
+  background-color: red;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.dell:hover{
+  background-color: darkred;
 }
