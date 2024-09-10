@@ -1,5 +1,5 @@
 from flask import jsonify, request, make_response, Blueprint
-from models import Tours, db
+from models import Tours, db, Images
 from schemas import ToursSchema
 from flask_cors import CORS
 
@@ -16,12 +16,14 @@ def add_tour():
 def home():
     return jsonify({'message': 'Welcome to tours'})
 
+# Get all tours
 @tours.route('/tours', methods=['GET'])
 def get_all_tours():
     tour_list = Tours.query.all()
     tour_data = ToursSchema(many = True).dump(tour_list)
     return make_response(jsonify(tour_data), 200)
 
+# getting one tour
 @tours.route('/tour/<int:id>', methods=['GET'])
 def tour_item(id):
     tours = Tours.query.filter_by(id=id).first()
@@ -30,24 +32,119 @@ def tour_item(id):
     serialized_tours = ToursSchema().dump(tours)
     return make_response(jsonify(serialized_tours), 200)
 
+# Posting a new tour with its multiple images
 @tours.route('/post_tours', methods=['POST'])
 def create_tour():
     data = request.get_json()
-    tours = ToursSchema().load(data)
-    new_tour = Tours(**tours)
+    # Extract images data separately
+    image_data = data.get('images', {})
 
-    db.session.add(new_tour)
+    # Validate images data and ensure it is a dictionary
+    if not isinstance(image_data, dict):
+        return make_response(jsonify({"error": "Invalid images data"}), 400)
+
+    # Load tour data excluding images to create the tour instance
+    tour_data = {key: value for key, value in data.items() if key != 'images'}
+    new_tour = Tours(**tour_data)
+
+    # Create the images instance if image data is present
+    new_image = Images(**image_data)
+    new_tour.images.append(new_image)
+
+    try:
+        # Save both the tour and images to the database
+        db.session.add(new_tour)
+        db.session.commit()
+        tour_data = ToursSchema().dump(new_tour)
+        return make_response(jsonify(tour_data), 201)
+    except Exception as e:
+        # Handle errors gracefully and rollback if needed
+        db.session.rollback()
+        return make_response(jsonify({"error": str(e)}), 500)
+
+
+# PUT Route - Full Update
+@tours.route('/update_tour/<int:id>', methods=['PUT'])
+def update_tour(id):
+    data = request.get_json()
+    tour = Tours.query.get_or_404(id)
+
+    # Update tour fields
+    tour.name = data.get('name', tour.name)
+    tour.description = data.get('description', tour.description)
+    tour.price = data.get('price', tour.price)
+    tour.image = data.get('image', tour.image)
+
+    # Update images if provided
+    images_data = data.get('images', [])
+    if images_data:
+        # Delete existing images
+        Images.query.filter_by(tour_id=tour.id).delete()
+
+        # Add new images
+        for image_data in images_data:
+            new_image = Images(**image_data)
+            tour.images.append(new_image)
+
     db.session.commit()
-    tour_data = ToursSchema().dump(new_tour)
-    return make_response(jsonify(tour_data), 201)
+    updated_tour = {
+        "id": tour.id,
+        "name": tour.name,
+        "description": tour.description,
+        "price": tour.price,
+        "image": tour.image,
+        "images": [{"image1": img.image1, "image2": img.image2, "image3": img.image3} for img in tour.images]
+    }
 
-@tours.route('/del_tours/<int:id>', methods=['DELETE'])
+    return make_response(jsonify(updated_tour), 200)
+
+# PATCH Route - Partial Update
+@tours.route('/update_tour/<int:id>', methods=['PATCH'])
+def patch_tour(id):
+    data = request.get_json()
+    tour = Tours.query.get_or_404(id)
+
+    # Update tour fields if provided
+    if 'name' in data:
+        tour.name = data['name']
+    if 'description' in data:
+        tour.description = data['description']
+    if 'price' in data:
+        tour.price = data['price']
+    if 'image' in data:
+        tour.image = data['image']
+
+    # Update images if provided
+    images_data = data.get('images', [])
+    if images_data:
+        # Update existing images or add new ones
+        Images.query.filter_by(tour_id=tour.id).delete()
+        for image_data in images_data:
+            new_image = Images(**image_data)
+            tour.images.append(new_image)
+
+    db.session.commit()
+    updated_tour = {
+        "id": tour.id,
+        "name": tour.name,
+        "description": tour.description,
+        "price": tour.price,
+        "image": tour.image,
+        "images": [{"image1": img.image1, "image2": img.image2, "image3": img.image3} for img in tour.images]
+    }
+
+    return make_response(jsonify(updated_tour), 200)
+
+# DELETE Route - Delete Tour
+@tours.route('/delete_tour/<int:id>', methods=['DELETE'])
 def delete_tour(id):
-    tours = Tours.query.filter_by(id=id).first()
-    if not tours:
-        return jsonify(message='tour not found'), 404
-    
-    db.session.delete(tours)
+    tour = Tours.query.get_or_404(id)
+
+    # Delete associated images first
+    Images.query.filter_by(tour_id=tour.id).delete()
+
+    # Delete the tour
+    db.session.delete(tour)
     db.session.commit()
 
-    return make_response(jsonify(message='Tour deleted successfully'),200)
+    return make_response(jsonify({"message": "Tour deleted successfully"}), 200)
