@@ -65,7 +65,7 @@ const Home = () => {
             <h2 className="text-2xl font-semibold text-white mb-4">Resources</h2>
             <p className="text-white">
               Discover a range of resources to help you plan your next trip with ease. From travel insurance
-              to packing tips, get everything you need.
+              to packing tips, get everything you need <Link to="/tours" className="text-blue-500 font-extrabold">here</Link>.
             </p>
           </div>
 
