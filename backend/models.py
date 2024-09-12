@@ -17,7 +17,9 @@ class Tours(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
     description = db.Column(db.String())
-    price = db.Column(db.Integer())
+    # price = db.Column(db.Integer())  # You can remove this if it's not needed anymore
+    adult_price = db.Column(db.Integer())  # New field for adult price
+    child_price = db.Column(db.Integer())  # New field for child price
     image = db.Column(db.String())
 
     images = db.relationship("Images", backref="tours")

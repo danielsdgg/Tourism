@@ -18,8 +18,10 @@ class ToursSchema(Schema):
     id = fields.Integer()
     name = fields.String()
     description = fields.String()
-    price = fields.Integer()
     image = fields.String()
+    adult_price = fields.Integer(required=True)
+    child_price = fields.Integer(required=True)
+
     images = fields.Nested(ImagesSchema,many=True)
 
 

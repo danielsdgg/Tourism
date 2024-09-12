@@ -36,31 +36,13 @@ def tour_item(id):
 @tours.route('/post_tours', methods=['POST'])
 def create_tour():
     data = request.get_json()
-    # Extract images data separately
-    image_data = data.get('images', {})
+    tours = ToursSchema().load(data)
+    new_tour = Tours(**tours)
 
-    # Validate images data and ensure it is a dictionary
-    if not isinstance(image_data, dict):
-        return make_response(jsonify({"error": "Invalid images data"}), 400)
-
-    # Load tour data excluding images to create the tour instance
-    tour_data = {key: value for key, value in data.items() if key != 'images'}
-    new_tour = Tours(**tour_data)
-
-    # Create the images instance if image data is present
-    new_image = Images(**image_data)
-    new_tour.images.append(new_image)
-
-    try:
-        # Save both the tour and images to the database
-        db.session.add(new_tour)
-        db.session.commit()
-        tour_data = ToursSchema().dump(new_tour)
-        return make_response(jsonify(tour_data), 201)
-    except Exception as e:
-        # Handle errors gracefully and rollback if needed
-        db.session.rollback()
-        return make_response(jsonify({"error": str(e)}), 500)
+    db.session.add(new_tour)
+    db.session.commit()
+    tour_data = ToursSchema().dump(new_tour)
+    return make_response(jsonify(tour_data), 201)
 
 
 # PUT Route - Full Update
