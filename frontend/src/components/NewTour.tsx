@@ -8,8 +8,8 @@ interface Travel {
   name: string;
   description: string;
   image: string;
-  adult_price: number; // Price per adult
-  child_price: number; // Price per child
+  adult_price: number; 
+  child_price: number; 
 }
 
 // Define the props type, which includes the newTours function
@@ -51,62 +51,73 @@ const NewTour: React.FC<NewTourProps> = ({ newTours }) => {
   };
 
   return (
-    <div className='w-full h-screen bg-gray-300 flex justify-center items-center p-4'>
-      <form onSubmit={handleSubmit} className='flex flex-col max-w-[600px] bg-gray-500 p-3 w-full'>
+    <div className='w-full h-screen bg-gray-100 flex justify-center items-center p-4'>
+      <form onSubmit={handleSubmit} className='flex flex-col max-w-[600px] bg-white p-6 w-full shadow-lg rounded-lg'>
         <div className='pb-8'>
           <Link to={'/tours'}>
             <img
               className='w-[30px] cursor-pointer my-4'
               src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoh5acUOOmQRCbwrlrqsXJjksHBQu-r_0Ulw&s'
-              alt='imagery'
-            />
+              alt='imagery'/>
           </Link>
-          <div className="flex justify-center">
-            <p className='text-4xl font-bold inline border-b-4 border-black text-black'>Add A Tour</p>
-          </div>
+          <h2 className="text-2xl text-center underline font-bold mb-6">Add A Tour</h2>
         </div>
+        <label className="mb-4">
+        <span className="block text-gray-700">Name :</span>
         <input
-          className='bg-white p-2'
+          className='mt-1 block w-full p-2 border border-gray-300 rounded'
           type="text"
           placeholder='Name of Tour'
           id='name'
           value={travel.name}
           onChange={handleChange}
         />
+        </label>
+        <label className="mb-4">
+        <span className="block text-gray-700">Description :</span>
         <input
-          className='my-4 p-2 bg-white'
+          className='mt-1 block w-full p-2 border border-gray-300 rounded'
           type="text"
           placeholder='Enter Tour Description'
           id='description'
           value={travel.description}
           onChange={handleChange}
         />
+        </label>
+        <label className="mb-4">
+        <span className="block text-gray-700">Card Image :</span>
         <input
-          className='my-4 p-2 bg-white'
+          className='mt-1 block w-full p-2 border border-gray-300 rounded'
           type="text"
           placeholder='Tour Image'
           id='image'
           value={travel.image}
           onChange={handleChange}
         />
-        {/* <input
-          className='my-4 p-2 bg-white'
-          type="number"
-          placeholder='Price'
-          id='price'
-          value={travel.price}
-          onChange={handleChange}
-        /> */}
+        </label>
+        <label className="mb-4">
+        <span className="block text-gray-700">Card Image :</span>
         <input
-          className='my-4 p-2 bg-white'
+          className='mt-1 block w-full p-2 border border-gray-300 rounded'
+          type="text"
+          placeholder='Tour Image'
+          id='image'
+          value={travel.image}
+          onChange={handleChange}
+        />
+        </label>
+        <span className="block text-gray-700">Enter price per adult :</span>
+        <input
+          className='mt-1 bg-gray-200 block w-full p-2 border border-gray-300 rounded'
           type="number"
           placeholder='Adult Price'
           id='adult_price'
           value={travel.adult_price}
           onChange={handleChange}
         />
+        <span className="block text-gray-700">Enter price per child :</span>
         <input
-          className='my-4 p-2 bg-white'
+          className='mt-1 bg-gray-200 block w-full p-2 border border-gray-300 rounded'
           type="number"
           placeholder='Child Price'
           id='child_price'
@@ -114,7 +125,7 @@ const NewTour: React.FC<NewTourProps> = ({ newTours }) => {
           onChange={handleChange}
         />
         <button
-          className='text-white border-4 bg-black hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center'
+          className='text-white border-4 bg-blue-400 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center'
           type='submit'
         >
           Add

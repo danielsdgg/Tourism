@@ -15,7 +15,8 @@ interface Tour {
   name: string;
   description: string;
   images: Image[];
-  price: number;
+  adult_price: number;
+  child_price: number;
   location: string;
 }
 
@@ -72,11 +73,17 @@ const Details: React.FC = () => {
       <div className="border-b border-gray-200 pb-6">
         <h1 className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 mt-2"> {tours.name} </h1>
     </div>
-    <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-      <p className="text-base leading-4 text-gray-800">Price</p>
-      <div className="flex items-center justify-center">
-        <p className="text-sm leading-none text-gray-600 mr-3">Kshs .{tours.price}</p>
+    <div className="border-b py-4 border-gray-200">
+      <div onClick={() => setShow2(!show2)} className="flex justify-between items-center cursor-pointer">
+        <p className="text-base leading-4 text-gray-800">Pricing</p>
+        <button className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 rounded" aria-label="show or hide">
+          <svg className={'transform ' + (show2 ? 'rotate-180' : 'rotate-0')} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 1L5 5L1 1" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </div>
+      <div className={'pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 ' + (show2 ? 'block' : 'hidden')} id="sect"> Per Adult : {tours.adult_price} </div>
+      <div className={'pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 ' + (show2 ? 'block' : 'hidden')} id="sect">Per Child : {tours.child_price} </div>
     </div>
     <div className="border-b py-4 border-gray-200">
       <div onClick={() => setShow2(!show2)} className="flex justify-between items-center cursor-pointer">
