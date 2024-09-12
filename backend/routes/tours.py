@@ -33,16 +33,26 @@ def tour_item(id):
     return make_response(jsonify(serialized_tours), 200)
 
 # Posting a new tour with its multiple images
+# routes/tours.py
 @tours.route('/post_tours', methods=['POST'])
 def create_tour():
     data = request.get_json()
-    tours = ToursSchema().load(data)
+    images_data = data.pop('images', [])  # Extract images data
+    tours = ToursSchema().load(data)  # Load the main tour data
+    
     new_tour = Tours(**tours)
-
     db.session.add(new_tour)
+    db.session.flush()  # Flush to get the new tour ID
+
+    # Add images if they are part of the payload
+    for image_data in images_data:
+        new_image = Images(tour_id=new_tour.id, **image_data)
+        db.session.add(new_image)
+
     db.session.commit()
     tour_data = ToursSchema().dump(new_tour)
     return make_response(jsonify(tour_data), 201)
+
 
 
 # PUT Route - Full Update
