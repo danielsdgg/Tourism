@@ -1,4 +1,3 @@
-// App.tsx
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Home from './components/Home';
@@ -8,32 +7,28 @@ import Tours from './components/Tours';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NewTour from './components/NewTour';
 import Details from './components/Details';
+import Booking from './components/Booking';
 
-// Define the Product type to match the API data structure
 interface Product {
   id: number;
   name: string;
   description: string;
   image: string;
-  price: number;
+  adult_price: number;
+  child_price: number
 }
 
-// Define the Travel type if different from Product
 interface Travel {
   name: string;
   description: string;
   image: string;
-  price: number;
+  adult_price: number;
+  child_price: number;
 }
 
 function App() {
-  // State to hold products
   const [product, setProduct] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
-
-  
-  // State to hold travels (update this based on your API structure if needed)
-  const [travels] = useState<Product[]>([]); // Adjust type as necessary
 
   useEffect(() => {
     const fetching = async () => {
@@ -45,7 +40,6 @@ function App() {
         const data = await response.json();
         setProduct(data);
       } catch (err) {
-        // Type assertion to handle 'unknown' type
         const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
         setError(`Error fetching data: ${errorMessage}`);
       }
@@ -53,15 +47,28 @@ function App() {
     fetching();
   }, []);
 
-  const newTours = (tours : Travel) => {
-    fetch('/post_tours', {method:"POST",
-      headers: {
-        'Accept' : 'application/json',
-        'Content-Type' : 'application/json'
-      },
-      body: JSON.stringify(tours)
-    }).then (res => console.log(res))
-  }
+  const newTours = async (travel: Travel) => {
+    try {
+      const response = await fetch('/post_tours', {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(travel)
+      });
+      if (!response.ok) {
+        throw new Error('Failed to add new tour');
+      }
+      console.log(await response.json());
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Example fixed prices for demonstration purposes
+  const pricePerAdult = 700;
+  const pricePerChild = 500;
 
   return (
     <div className="App">
@@ -70,12 +77,16 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contacts" element={<Contact />} />
-          <Route path="/tours" element={<Tours product={product} travels={travels} />} />
-          <Route path="/add_tours" element={<NewTour newTours = {newTours} />} />
-          <Route path='/details/:id' element={<Details/>} />  
+          <Route path="/tours" element={<Tours product={product} />} />
+          <Route path="/add_tours" element={<NewTour newTours={newTours} />} />
+          <Route path="/details/:id" element={<Details />} />
+          <Route 
+            path="/booking" 
+            element={<Booking pricePerAdult={pricePerAdult} pricePerChild={pricePerChild} />} 
+          />
         </Routes>
       </Router>
-      {error && <div className="error-message">{error}</div>} {/* Display error message */}
+      {error && <div className="error-message">{error}</div>}
     </div>
   );
 }
