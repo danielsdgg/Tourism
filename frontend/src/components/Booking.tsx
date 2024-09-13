@@ -77,7 +77,7 @@ const Booking: React.FC<BookingProps> = ({ pricePerAdult, pricePerChild }) => {
         </label>
 
         <label className="mb-6">
-          <span className="block text-gray-700">Number of Children :</span>
+          <span className="block text-gray-700">Number of Children</span>
           <select
             className="mt-1 block w-full p-2 border border-gray-300 rounded"
             value={children}
