@@ -24,6 +24,7 @@ const Details: React.FC = () => {
     // State for storing tour details
   const [tours, setTours] = useState<Tour | null>(null); 
   const [show2, setShow2] = useState(false);
+  const [show1, setShow1] = useState(false);
   const [image1, setImage1] = useState<string>('');
   const [image2, setImage2] = useState<string>('');
   const [image3, setImage3] = useState<string>('');
@@ -74,16 +75,16 @@ const Details: React.FC = () => {
         <h1 className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 mt-2"> {tours.name} </h1>
     </div>
     <div className="border-b py-4 border-gray-200">
-      <div onClick={() => setShow2(!show2)} className="flex justify-between items-center cursor-pointer">
+      <div onClick={() => setShow1(!show1)} className="flex justify-between items-center cursor-pointer">
         <p className="text-base leading-4 text-gray-800">Pricing</p>
         <button className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 rounded" aria-label="show or hide">
-          <svg className={'transform ' + (show2 ? 'rotate-180' : 'rotate-0')} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className={'transform ' + (show1 ? 'rotate-180' : 'rotate-0')} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 1L5 5L1 1" stroke="#4B5563" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       </div>
-      <div className={'pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 ' + (show2 ? 'block' : 'hidden')} id="sect"> Per Adult : {tours.adult_price} </div>
-      <div className={'pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 ' + (show2 ? 'block' : 'hidden')} id="sect">Per Child : {tours.child_price} </div>
+      <p className={'pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 ' + (show1 ? 'block' : 'hidden')} id="sect"> Per Adult : {tours.adult_price} </p>
+      <p className={'pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 ' + (show1 ? 'block' : 'hidden')} id="sect">Per Child : {tours.child_price} </p>
     </div>
     <div className="border-b py-4 border-gray-200">
       <div onClick={() => setShow2(!show2)} className="flex justify-between items-center cursor-pointer">

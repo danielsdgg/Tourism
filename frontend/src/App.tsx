@@ -15,7 +15,7 @@ interface Product {
   description: string;
   image: string;
   adult_price: number;
-  child_price: number
+  child_price: number;
 }
 
 interface Travel {
@@ -24,6 +24,11 @@ interface Travel {
   image: string;
   adult_price: number;
   child_price: number;
+  images: { 
+    image1: string;
+    image2: string;
+    image3: string;
+  }[];
 }
 
 function App() {
@@ -47,7 +52,7 @@ function App() {
     fetching();
   }, []);
 
-  const newTours = async (travel: Travel) => {
+  const newTours = async (travel: Travel): Promise<void> => {
     try {
       const response = await fetch('/post_tours', {
         method: "POST",
@@ -62,11 +67,10 @@ function App() {
       }
       console.log(await response.json());
     } catch (error) {
-      console.error(error);
+      console.error('Error adding new tour:', error);
     }
   };
 
-  // Example fixed prices for demonstration purposes
   const pricePerAdult = 700;
   const pricePerChild = 500;
 
