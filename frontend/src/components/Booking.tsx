@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 interface BookingProps {
   pricePerAdult: number;
@@ -28,6 +31,12 @@ const Booking: React.FC<BookingProps> = ({ pricePerAdult, pricePerChild }) => {
     <Navbar />
         <div className="w-full h-screen bg-gray-100 flex justify-center items-center p-4">
       <form className="flex flex-col max-w-[600px] bg-white p-6 w-full shadow-lg rounded-lg">
+      <Link to={'/tours'}>
+          <p className='cursor-pointer pt-4 text-base leading-normal pr-12 mt-4 text-gray-500 flex items-center'>
+            <FontAwesomeIcon icon={faChevronLeft} className="mr-2" />
+            Go back
+          </p>
+        </Link>
         <h2 className="text-2xl text-center underline font-bold mb-6">Book Your Tour</h2>
 
         <label className="mb-4">
