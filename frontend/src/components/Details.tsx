@@ -97,7 +97,7 @@ const Details: React.FC = () => {
       </div>
       <div className={'pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 ' + (show2 ? 'block' : 'hidden')} id="sect"> {tours.description} </div>
     </div>
-    <Link to="/booking">
+    <Link to="/payment">
       <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700">
         <svg className="mr-3" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
         Book

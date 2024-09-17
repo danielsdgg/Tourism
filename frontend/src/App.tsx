@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NewTour from './components/NewTour';
 import Details from './components/Details';
 import Booking from './components/Booking';
+import Payment from './components/Payment';
 
 interface Product {
   id: number;
@@ -84,6 +85,7 @@ function App() {
           <Route path="/tours" element={<Tours product={product} />} />
           <Route path="/add_tours" element={<NewTour newTours={newTours} />} />
           <Route path="/details/:id" element={<Details />} />
+          <Route path="/payment" element={<Payment />} />
           <Route 
             path="/booking" 
             element={<Booking pricePerAdult={pricePerAdult} pricePerChild={pricePerChild} />} 
