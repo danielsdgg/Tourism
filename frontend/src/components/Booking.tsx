@@ -107,12 +107,12 @@ const Booking: React.FC<BookingProps> = ({ pricePerAdult, pricePerChild }) => {
           </p>
         </div>
 
-        <button
+        <Link to={'/payment'}><button
           type="submit"
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
         >
           Confirm Booking
-        </button>
+        </button> </Link>
       </form>
     </div>
     <Footer />

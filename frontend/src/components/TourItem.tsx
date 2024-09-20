@@ -9,6 +9,7 @@ interface TourItemProps {
     description: string,
     adult_price: number,
     child_price: number
+    
 }
 
 // apply the type to the component props
