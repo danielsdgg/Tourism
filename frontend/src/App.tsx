@@ -72,8 +72,6 @@ function App() {
     }
   };
 
-  const pricePerAdult = 700;
-  const pricePerChild = 500;
 
   return (
     <div className="App">
@@ -86,11 +84,8 @@ function App() {
           <Route path="/add_tours" element={<NewTour newTours={newTours} />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/payment" element={<Payment />} />
-          <Route 
-            path="/booking" 
-            element={<Booking pricePerAdult={pricePerAdult} pricePerChild={pricePerChild} />} 
-          />
-        </Routes>
+          <Route path="/booking/:id" element={<Booking />} /> {/* Updated route */}
+          </Routes>
       </Router>
       {error && <div className="error-message">{error}</div>}
     </div>
