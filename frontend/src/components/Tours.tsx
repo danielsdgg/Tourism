@@ -77,9 +77,9 @@ const Tours: React.FC<ToursProps> = ({ product }) => {
         <form onSubmit={handleSubmit}>
           {/* Search form elements */}
         </form><br />
-        <div className='w-full bg-gray-400 text-black py-16 px-4 text-center md:text-6xl sm:text-3xl text-3xl'>
+        {/* <div className='w-full bg-gray-400 text-black py-16 px-4 text-center md:text-6xl sm:text-3xl text-3xl'>
           <p>Fascinating sites await <b>you</b></p>
-        </div>
+        </div> */}
         <div className="flex justify-center">
           <Link to={'/add_tours'}>
             <button className="text-white border-4 bg-black hover:border-blue-600 px-4 my-8 py-2">
