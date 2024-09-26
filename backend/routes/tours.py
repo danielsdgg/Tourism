@@ -33,7 +33,6 @@ def tour_item(id):
     return make_response(jsonify(serialized_tours), 200)
 
 # Posting a new tour with its multiple images
-# routes/tours.py
 @tours.route('/post_tours', methods=['POST'])
 def create_tour():
     data = request.get_json()
