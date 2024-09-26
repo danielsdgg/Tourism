@@ -63,7 +63,8 @@ def update_tour(id):
     # Update tour fields
     tour.name = data.get('name', tour.name)
     tour.description = data.get('description', tour.description)
-    tour.price = data.get('price', tour.price)
+    tour.adult_price = data.get('adult_price', tour.adult_price)
+    tour.child_price = data.get('child_price', tour.child_price)
     tour.image = data.get('image', tour.image)
 
     # Update images if provided
@@ -82,7 +83,8 @@ def update_tour(id):
         "id": tour.id,
         "name": tour.name,
         "description": tour.description,
-        "price": tour.price,
+        "adult_price": tour.adult_price,
+        "child_price": tour.child_price,
         "image": tour.image,
         "images": [{"image1": img.image1, "image2": img.image2, "image3": img.image3} for img in tour.images]
     }
@@ -100,8 +102,10 @@ def patch_tour(id):
         tour.name = data['name']
     if 'description' in data:
         tour.description = data['description']
-    if 'price' in data:
-        tour.price = data['price']
+    if 'adult_price' in data:
+        tour.adult_price = data['adult_price']
+    if 'child_price' in data:
+        tour.child_price = data['child_price']
     if 'image' in data:
         tour.image = data['image']
 
@@ -119,7 +123,8 @@ def patch_tour(id):
         "id": tour.id,
         "name": tour.name,
         "description": tour.description,
-        "price": tour.price,
+        "adult_price": tour.adult_price,
+        "child_price": tour.child_price,
         "image": tour.image,
         "images": [{"image1": img.image1, "image2": img.image2, "image3": img.image3} for img in tour.images]
     }
