@@ -12,19 +12,19 @@ const Home = () => {
       image: "https://cdn.mos.cms.futurecdn.net/DMLwZCcWy25RhSYoszqsjN.jpg",
       name: "Daniel Muiruri",
       title: "Software developer",
-      testimonial: "Working with Harold-Adventures has been significantly more cost effective for us than building out our own internal SOC. ."
+      testimonial: "Working with Royal bush safaris has been significantly more cost effective for us than building out our own internal SOC. ."
     },
     {
       image: 'https://c02.purpledshub.com/uploads/sites/41/2024/05/Earths-second-moon.jpg?w=1029&webp=1',
       name: 'Owen Ngare',
       title: 'Apple CEO',
-      testimonial: 'Harold-Adventures helped us consolidate our agencies under one uniform tours and travel instrumentation for ease of use and increased response.',
+      testimonial: 'Royal bush helped us consolidate our agencies under one uniform tours and travel instrumentation for ease of use and increased response.',
     },
     {
       image: 'https://science.nasa.gov/wp-content/uploads/2024/01/preview-supermoons.jpg?w=4096&format=jpeg',
       name: 'Cynthia ochieng',
       title: 'Head of WCK',
-      testimonial: 'With the constant fear of wondering how to address a marketing strategy for attracting tourists, Harold-Adventures exceeded our expectations in solutions.',
+      testimonial: 'With the constant fear of wondering how to address a marketing strategy for attracting tourists, Royal bush exceeded our expectations in solutions.',
     },
 
   ]
@@ -46,7 +46,7 @@ const Home = () => {
     <Navbar />
     <div>
       {/* part 1 */}
-      <section className="bg-gray-200 py-12">
+      <section className="bg-gray-200 py-28">
       {/* Container */}
       <div className="container mx-auto px-4">
         {/* Heading */}
@@ -195,7 +195,7 @@ const Home = () => {
             <div className='flex flex-col justify-center text-black'>
                 <h2 className='font-semibold py-2 md:text-6xl sm:text-3xl text-2xl'>Message from our CEO:</h2>
                 <p>
-                    Harold-Adventures has one shared objective; To unlock the true potential of individuals, teams, and the community. We believe strongly in the power of sharing ideas and continuously strive to grow each other and ourselves.
+                    Royal-Bush-Safaris has one shared objective; To unlock the true potential of individuals, teams, and the community. We believe strongly in the power of sharing ideas and continuously strive to grow each other and ourselves.
                     <p>Internally, but also within the larger communities in which we are active. I am excited to be launching this website since it will connect us more to our clients. We are here to serve you. Enjoy..!</p>
                 </p>
             </div>

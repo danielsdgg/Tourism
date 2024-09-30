@@ -54,7 +54,7 @@ const About = () => {
 
     <section className="bg-gray-200 py-28">
             <div className="container mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">The Team Behind Harold-Adventures</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">The Team Behind Royal-Bush-Safaris</h2>
                 <p className="text-lg md:text-xl text-gray-500">{message}</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <div className="col-span-3 md:col-span-1 pt-9">
@@ -62,7 +62,7 @@ const About = () => {
                             <img src="https://res.cloudinary.com/ddei3mzex/image/upload/v1716552809/1000045233_ywrlv5.jpg" className="mx-auto w-48 h-48 rounded-full mb-6" alt="pic" />
                             <h3 className="text-xl font-semibold">Harold</h3>
                             <div className="mb-4">
-                                <p className="text-gray-500">CEO of Harold-Adventures</p>
+                                <p className="text-gray-500">CEO of Royal-Bush</p>
                             </div>
                             <p className="text-black">Harold is our co-founder and has developed search strategies for a variety of clients from international brands to medium-sized businesses for over five years.</p>
                             <ul className="flex justify-center mt-6">
