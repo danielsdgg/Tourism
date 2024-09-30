@@ -25,6 +25,7 @@ const Booking: React.FC<BookingProps> = () => {
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [tour, setTour] = useState<Tour | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
   // Fetch the tour details based on the ID
   useEffect(() => {
@@ -51,10 +52,24 @@ const Booking: React.FC<BookingProps> = () => {
   // Calculate total price based on the number of adults, children, and tour pricing
   useEffect(() => {
     if (tour) {
-      const total = (adults * tour.adult_price) + (children * tour.child_price);
+      const total = adults * tour.adult_price + children * tour.child_price;
       setTotalPrice(total);
     }
   }, [adults, children, tour]);
+
+  // Validate the form
+  useEffect(() => {
+    const isNameValid = name.trim() !== '';
+    const isEmailValid = email.trim() !== '';
+    const isPhoneValid = phoneNumber.trim() !== '';
+    const totalPersons = adults + children;
+
+    if (isNameValid && isEmailValid && isPhoneValid && totalPersons > 0) {
+      setIsFormValid(true);
+    } else {
+      setIsFormValid(false);
+    }
+  }, [name, email, phoneNumber, adults, children]);
 
   // Show error message if an error occurred
   if (error) {
@@ -71,7 +86,7 @@ const Booking: React.FC<BookingProps> = () => {
       <Navbar />
       <div className="w-full h-screen bg-gray-100 flex justify-center items-center p-4">
         <form className="flex flex-col max-w-[600px] bg-white p-6 w-full shadow-lg rounded-lg">
-          <Link to={'/tours'}>
+          <Link to={`/details/${id}`}>
             <p className="cursor-pointer pt-4 text-base leading-normal pr-12 mt-4 text-gray-500 flex items-center">
               <FontAwesomeIcon icon={faChevronLeft} className="mr-2" />
               Go back
@@ -86,6 +101,7 @@ const Booking: React.FC<BookingProps> = () => {
               className="mt-1 block w-full p-2 border border-gray-300 rounded"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </label>
 
@@ -96,6 +112,7 @@ const Booking: React.FC<BookingProps> = () => {
               className="mt-1 block w-full p-2 border border-gray-300 rounded"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </label>
 
@@ -106,6 +123,7 @@ const Booking: React.FC<BookingProps> = () => {
               className="mt-1 block w-full p-2 border border-gray-300 rounded"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
+              required
             />
           </label>
 
@@ -115,6 +133,7 @@ const Booking: React.FC<BookingProps> = () => {
               className="mt-1 block w-full p-2 border border-gray-300 rounded"
               value={adults}
               onChange={(e) => setAdults(parseInt(e.target.value) || 0)}
+              required
             >
               <option value="0">Select number</option>
               {[...Array(10).keys()].map((n) => (
@@ -131,6 +150,7 @@ const Booking: React.FC<BookingProps> = () => {
               className="mt-1 block w-full p-2 border border-gray-300 rounded"
               value={children}
               onChange={(e) => setChildren(parseInt(e.target.value) || 0)}
+              required
             >
               <option value="0">Select number</option>
               {[...Array(10).keys()].map((n) => (
@@ -147,10 +167,13 @@ const Booking: React.FC<BookingProps> = () => {
             </p>
           </div>
 
-          <Link to={'/payment'}>
+          <Link to={isFormValid ? '/payment' : '#'} >
             <button
               type="submit"
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+              className={`bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ${
+                !isFormValid ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+              disabled={!isFormValid}
             >
               Confirm Booking
             </button>

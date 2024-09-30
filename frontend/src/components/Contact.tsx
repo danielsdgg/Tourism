@@ -11,7 +11,7 @@ const Contact = () => {
     {/* Image Section */}
     <div className="flex justify-center items-center">
       <img
-        className="w-[500px] rounded-3xl shadow-lg"
+        className="w-[800px] h-[400px] rounded-3xl shadow-lg"
         src="https://img.freepik.com/free-photo/full-shot-travel-concept-with-landmarks_23-2149153258.jpg"
         alt="imagery"
       />
@@ -19,11 +19,7 @@ const Contact = () => {
 
     {/* Form Section */}
     <div className="flex justify-center items-center">
-      <form 
-        method="POST" 
-        action="https://getform.io/f/a699a1b2-f225-434e-b317-1fbbde8e006c" 
-        className="w-full bg-white p-8 rounded-lg shadow-lg"
-      >
+      <form className="w-full bg-white p-8 rounded-lg shadow-lg">
         <div className="pb-8 text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Get in Touch</h2>
           <p className="text-gray-600">To contact us, please fill out the form below or send an email to <a href="mailto:gathigidg26@gmail.com" className="text-blue-500">gathigidg26@gmail.com</a>.</p>

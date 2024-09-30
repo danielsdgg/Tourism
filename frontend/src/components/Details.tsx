@@ -63,11 +63,11 @@ const Details: React.FC = () => {
     <Navbar />
     <div className="flex flex-col lg:items-center py-12 2xl:px-20 md:px-6 px-4">
       {/* Images Section */}
-      <div className="grid lg:grid-cols-3 gap-6 w-full lg:w-2/3">
-      {/* Individual Images in Columns on Large Screens */}
-        <img className="w-full" alt={tours.name} src={image1} />
-        <img className="w-full" alt={tours.name} src={image2} />
-        <img className="w-full" alt={tours.name} src={image3} />
+      <div className="grid lg:grid-cols-3 gap-6 w-full lg:w-2/3 h-2/3">
+        {/* Individual Images in Columns on Large Screens */}
+        <img className="w-full h-64 object-cover" alt={tours.name} src={image1} />
+        <img className="w-full h-64 object-cover" alt={tours.name} src={image2} />
+        <img className="w-full h-64 object-cover" alt={tours.name} src={image3} />
       </div>
     {/* Text and Description Section */}
     <div className="lg:w-2/3 w-full lg:mt-8 mt-6 lg:mx-auto">
