@@ -13,7 +13,7 @@ const About = () => {
   return (
     <>
     <Navbar/>
-<div className='w-full bg-white py-16 px-4'>
+<div className='w-full bg-white py-28 px-4'>
   <div className='max-w-[1200px] mx-auto grid md:grid-cols-3 gap-8'>
     <div className='flex flex-col items-center text-black'>
       <img

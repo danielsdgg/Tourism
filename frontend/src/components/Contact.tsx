@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <>
     <Navbar />
-    <div className="w-full h-auto bg-gray-100 py-16 px-12">
+    <div className="w-full h-auto bg-gray-100 py-28 px-12">
   <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
     {/* Image Section */}
     <div className="flex justify-center items-center">

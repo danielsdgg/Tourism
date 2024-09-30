@@ -20,7 +20,7 @@ const Payment = () => {
   return (
     <>
     <Navbar />
-    <div className="w-full bg-gray-100 py-16">
+    <div className="w-full bg-gray-100 py-28">
       <div className="max-w-[100%] mx-auto grid  md:grid-cols-2 gap-8 items-center">
         
         {/* Left Column - Image */}

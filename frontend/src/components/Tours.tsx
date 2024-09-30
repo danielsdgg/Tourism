@@ -73,7 +73,7 @@ const Tours: React.FC<ToursProps> = ({ product }) => {
   return (
     <>
       <Navbar />
-      <div className="bg-gray-300 h-full w-full">
+      <div className="bg-gray-300 h-full w-full py-24">
         <form onSubmit={handleSubmit}>
           {/* Search form elements */}
         </form><br />
