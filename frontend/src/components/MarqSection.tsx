@@ -14,7 +14,7 @@ const MarqSection = () => {
     <div className='app'>
         <div className='title'>
             <h1 className='font-bold md:text-4xl sm:text-3xl text-2xl'>Our Technology Partners</h1>
-            <p className='mt-4 font-medium'>Harold-Adventures wouldn't be possible without our collaborators</p>
+            <p className='mt-4 font-medium'>Royal-Bush-Safaris wouldn't be possible without our collaborators</p>
         </div>
         <div>
             <Marquee speed={90} delay={2} gradient={true}>
