@@ -2,14 +2,6 @@
 
 Welcome to the **Royal Bush Safaris** project! This is a comprehensive tours and travel website designed to provide users with an engaging platform to explore various tours and sites available for visiting. Users can also conveniently book their tours through our seamless interface.
 
-## Screenshots
-
-### Homepage
-![Homepage](frontend/src/assets/Screenshot%201.png)
-
-### Tour Details
-![Tour Details](frontend/src/assets/Screenshot%202.png)
-
 
 ## Table of Contents
 
