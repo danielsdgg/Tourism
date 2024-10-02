@@ -48,8 +48,8 @@ To get started with the Royal Bush Safaris project, follow these steps:
    ```bash
    git clone https://github.com/danielsdgg/Tourism.git
 
-   - Navigate to the tourism directory
 2. **Install dependencies**:
+- Navigate to the tourism directory
 for backend, you can install the dependencies on the pipfile and start the server by running python3 run.py on the terminal
 for frontend, install package modules by running npm install,  then start the frontend using npm start
 
