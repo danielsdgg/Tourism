@@ -44,7 +44,7 @@ To get started with the Royal Bush Safaris project, follow these steps:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/yourusername/royal-bush-safaris.git
+   git clone https://github.com/danielsdgg/Tourism.git
 
    - Navigate to the tourism directory
 - **install dependencies**:
