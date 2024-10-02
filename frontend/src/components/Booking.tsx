@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -167,9 +166,11 @@ const Booking: React.FC<BookingProps> = () => {
             </p>
           </div>
 
-          <Link to={isFormValid ? '/payment' : '#'} >
+          <Link to= '/payment'
+            state = {{totalPrice}} // Pass total price as state
+          >
             <button
-              type="submit"
+              type="button"
               className={`bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ${
                 !isFormValid ? 'opacity-50 cursor-not-allowed' : ''
               }`}
