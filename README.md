@@ -50,8 +50,8 @@ To get started with the Royal Bush Safaris project, follow these steps:
 
 2. **Install dependencies**:
 - Navigate to the tourism directory
-for backend, you can install the dependencies on the pipfile and start the server by running python3 run.py on the terminal
-for frontend, install package modules by running npm install,  then start the frontend using npm start
+- for backend, you can install the dependencies on the pipfile and start the server by running python3 run.py on the terminal
+- for frontend, install package modules by running npm install,  then start the frontend using npm start
 
 ## Usage
 - Open your web browser and navigate to http://localhost:3000 to access the website.
