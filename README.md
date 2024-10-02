@@ -2,6 +2,14 @@
 
 Welcome to the **Royal Bush Safaris** project! This is a comprehensive tours and travel website designed to provide users with an engaging platform to explore various tours and sites available for visiting. Users can also conveniently book their tours through our seamless interface.
 
+## Screenshots
+
+### Homepage
+![Homepage](assets/screenshot 1.png)
+
+### Tours Details
+![Tour Details](assets/screenshot 2.png)
+
 ## Table of Contents
 
 - [Features](#features)
@@ -12,6 +20,7 @@ Welcome to the **Royal Bush Safaris** project! This is a comprehensive tours and
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+- [Demo] (#video-demo)
 
 ## Features
 
@@ -47,7 +56,7 @@ To get started with the Royal Bush Safaris project, follow these steps:
    git clone https://github.com/danielsdgg/Tourism.git
 
    - Navigate to the tourism directory
-- **install dependencies**:
+2. **Install dependencies**:
 for backend, you can install the dependencies on the pipfile and start the server by running python3 run.py on the terminal
 for frontend, install package modules by running npm install,  then start the frontend using npm start
 
@@ -81,5 +90,13 @@ For inquiries or feedback, feel free to reach out:
 Email: gathigidg26@gmail.com
 GitHub: [danielsdgg](https://github.com/danielsdgg)
 LinkedIn: [Daniel](https://www.linkedin.com/in/daniel-muiruri-541a701a3/)
+
+## Demo Video
+
+Check out the demo video of the Royal Bush Safaris website:
+
+[![Watch the video](https://youtu.be/IBk0LQmjfKM)](https://youtu.be/IBk0LQmjfKM)
+
+...
 
 
