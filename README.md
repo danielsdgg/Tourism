@@ -5,10 +5,10 @@ Welcome to the **Royal Bush Safaris** project! This is a comprehensive tours and
 ## Screenshots
 
 ### Homepage
-![Homepage](assets/screenshot 1.png)
+![Homepage](frontend/src/assets/Screenshot%201.png)
 
 ### Tours Details
-![Tour Details](assets/screenshot 2.png)
+![Tour Details](frontend/src/assets/Screenshot%202.png)
 
 ## Table of Contents
 
@@ -95,7 +95,8 @@ LinkedIn: [Daniel](https://www.linkedin.com/in/daniel-muiruri-541a701a3/)
 
 Check out the demo video of the Royal Bush Safaris website:
 
-[![Watch the video](https://youtu.be/IBk0LQmjfKM)](https://youtu.be/IBk0LQmjfKM)
+[![Watch the video](https://img.youtube.com/vi/IBk0LQmjfKM/0.jpg)](https://youtu.be/IBk0LQmjfKM)
+
 
 ...
 
