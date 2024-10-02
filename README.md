@@ -7,8 +7,9 @@ Welcome to the **Royal Bush Safaris** project! This is a comprehensive tours and
 ### Homepage
 ![Homepage](frontend/src/assets/Screenshot%201.png)
 
-### Tours Details
+### Tour Details
 ![Tour Details](frontend/src/assets/Screenshot%202.png)
+
 
 ## Table of Contents
 
