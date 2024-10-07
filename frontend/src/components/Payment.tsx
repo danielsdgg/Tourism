@@ -103,7 +103,7 @@ const Payment = () => {
                   <h2 className="text-xl md:text-2xl font-bold mb-4">Follow Prompt to Complete Payment</h2>
                   <input 
                     type="tel" 
-                    placeholder="Enter Phone Number" 
+                    placeholder="Enter Phone Number (e.g. 0707319080)" 
                     value={phoneNumber} 
                     onChange={(e) => setPhoneNumber(e.target.value)} 
                     className="w-full p-3 border border-gray-300 rounded-lg mb-4" 
