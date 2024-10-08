@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fa';
 
 const About = () => {
-  let message = `A great adventure is a great destination.`;
+  let message = `We make plans, you make memories.`;
   return (
     <>
     <Navbar/>
